@@ -28,7 +28,7 @@ void print_message(char *prog_name, int line_nr, char *command, int err_status)
 		exit(EXIT_FAILURE);
 
 	/* Generate the error message using gen_message() for err_status 1*/
-	if (err_status == 1)
+	if (err_status == 127)
 	{
 		message = gen_message(prefix, command, ": not found\n");
 		if (message == NULL)

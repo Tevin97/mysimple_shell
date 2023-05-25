@@ -27,11 +27,12 @@ int fork_and_execute(char *command, char *prog_name, int line_nr)
 	{
 		if (argv[1] != NULL)
 		{
+			err_status = _atoi(argv[1]);
 			free_mem(argv);
-			exit(_atoi(argv[1]));
+			exit(err_status);
 		}
 		free_mem(argv);
-		exit(EXIT_SUCCESS);
+		return(1);
 	}
 	/* Check if the command exists in PATH */
 	err_status = check_stat(&argv[0]);
@@ -40,7 +41,7 @@ int fork_and_execute(char *command, char *prog_name, int line_nr)
 		free_mem(argv);
 		return (err_status);
 	}
-	if (err_status == 1)
+	if (err_status == 127)
 	{
 		print_message(prog_name, line_nr, argv[0], err_status);
 		free_mem(argv);
