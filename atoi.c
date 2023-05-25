@@ -1,6 +1,6 @@
 /**
  * _atoi - Converts a string to an integer
- * @s: String to be converted to an integer
+ * @str: String to be converted to an integer
  *
  * Return: The integer converted from the string
  */
