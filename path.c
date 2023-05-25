@@ -14,7 +14,7 @@ char **path(void)
 	env = _getenv("PATH");
 	if (env == NULL)
 		return (NULL);
-	
+
 	if (strcmp(env, "") == 0)
 	{
 		free(env);
