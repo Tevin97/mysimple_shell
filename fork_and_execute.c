@@ -28,12 +28,11 @@ int fork_and_execute(char *command, char *prog_name, int line_nr)
 		if (argv[1] != NULL)
 		{
 			free_mem(argv);
-			exit(atoi(argv[1]));
+			exit(_atoi(argv[1]));
 		}
 		free_mem(argv);
 		exit(EXIT_SUCCESS);
 	}
-
 	/* Check if the command exists in PATH */
 	err_status = check_stat(&argv[0]);
 	if (err_status == -1)
@@ -49,24 +48,15 @@ int fork_and_execute(char *command, char *prog_name, int line_nr)
 	}
 	/* Fork a new child process */
 	child = fork();
-	/* Check if fork failed */
-	if (child == -1)
+	if (child == -1) /* Forking failed */
 	{
 		free_mem(argv);
 		exit(EXIT_FAILURE);
 	}
-	/* Execute in child process only */
-	else if (child == 0)
-	{
+	else if (child == 0) /* Child Process */
 		exec(argv);
-		free_mem(argv);
-	}
-
-	/* Parent process must wait for child process to terminate */
-	else
-	{
+	else /* Parent process must wait for child process to terminate */
 		wait(&status);
-	}
 	free_mem(argv);
 	return (0);
 }
