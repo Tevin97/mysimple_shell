@@ -15,6 +15,7 @@ int exec(char **argv)
 	/* Exit child process if execution fails */
 	if (execve(argv[0], argv, environ) == -1)
 	{
+		free_mem(argv);
 		perror("Error");
 		exit(1);
 	}

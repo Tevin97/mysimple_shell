@@ -41,7 +41,7 @@ int check_stat(char **filename)
 			free_mem(paths);
 			return (0);
 		}
-
+		free(str);
 	}
 	free_mem(paths);
 	return (1);
