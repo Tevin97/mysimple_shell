@@ -15,6 +15,7 @@ char **path(void)
 	dir = str_to_array(env, ":\n");
 
 	free(env);
+
 	/* If the system fails to allocate memory, exit with failure status*/
 	if (dir == NULL)
 		exit(EXIT_FAILURE);
