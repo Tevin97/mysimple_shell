@@ -12,8 +12,23 @@ char **path(void)
 	char **dir; /* String array of directories */
 
 	env = _getenv("PATH");
-	dir = str_to_array(env, ":\n");
 
+	if (strcmp(env, "") == 0)
+	{
+		free(env);
+		dir = malloc(sizeof(char *) * 2);
+		if (dir == NULL)
+			return (NULL);
+		dir[0] = strdup(".");
+		if (dir[0] == NULL)
+		{
+			free(dir);
+			return (NULL);
+		}
+		dir[1] = NULL;
+		return (dir);
+	}
+	dir = str_to_array(env, ":\n");
 	free(env);
 
 	/* If the system fails to allocate memory, exit with failure status*/
