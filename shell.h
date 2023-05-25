@@ -25,5 +25,6 @@ int check_stat(char **filename);
 void print_message(char *prog_name, int line_nr, char *command, int err_stat);
 char *_itoa(unsigned int n);
 void free_mem(char **av);
+int _atoi(char *str);
 
 #endif /* SHELL_H */
