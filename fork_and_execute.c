@@ -27,8 +27,8 @@ int fork_and_execute(char *command, char *prog_name, int line_nr)
 	{
 		if (argv[1] != NULL)
 		{
-			exit(atoi(argv[1]));
 			free_mem(argv);
+			exit(atoi(argv[1]));
 		}
 		free_mem(argv);
 		exit(EXIT_SUCCESS);
