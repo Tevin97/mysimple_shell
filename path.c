@@ -12,13 +12,12 @@ char **path(void)
 	char **dir; /* String array of directories */
 
 	env = _getenv("PATH");
+
 	dir = str_to_array(env, ":\n");
-
 	free(env);
-
 	/* If the system fails to allocate memory, exit with failure status*/
 	if (dir == NULL)
-		exit(EXIT_FAILURE);
+		return (NULL);
 
 	/* Return the 'dir' array of strings */
 	return (dir);
