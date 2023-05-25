@@ -73,11 +73,9 @@ char *gen_message(const char *prefix, const char *op2, const char *op3)
 		return (NULL);
 
 	str = concat_str(ss, op3);
+	free(ss);
 	if (str == NULL)
-	{
-		free(ss);
 		return (NULL);
-	}
 
 	return (str);
 }
@@ -114,12 +112,10 @@ char *gen_prefix(const char *prog_name, const int line_nr)
 	}
 
 	str = concat_str(s1, s2);
+	free(s1);
+	free(s2);
 	if (str == NULL)
-	{
-		free(s1);
-		free(s2);
 		return (NULL);
-	}
 
 	return (str);
 }
