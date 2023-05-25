@@ -30,8 +30,9 @@ char *prompt(void)
 	/* Handle EOF from input stream (CTL+D) */
 	if (n_chars < 1)
 	{
+		free(buff);
 		if (isatty(STDIN_FILENO))
-			/* Print new line when in interactive mode */
+		/* Print new line when in interactive mode */
 			write(STDOUT_FILENO, "\n", 1);
 		exit(EXIT_SUCCESS);
 	}
