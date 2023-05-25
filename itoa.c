@@ -30,6 +30,8 @@ char *_itoa(unsigned int n)
 
 	j = i;
 	s = malloc(sizeof(char) * strlen(str) + 1);
+	if (!s)
+		return (NULL);
 
 	/* store the digits from the array into string in the correct order */
 	for (i = 0; i <= j; i++)
@@ -37,9 +39,6 @@ char *_itoa(unsigned int n)
 		s[i] = str[j - i];
 	}
 	s[i] = '\0';
-
-	/* free the memory before returning*/
-	free(s);
 
 	return (s);
 }

@@ -92,13 +92,21 @@ char *gen_message(const char *prefix, const char *op2, const char *op3)
  */
 char *gen_prefix(const char *prog_name, const int line_nr)
 {
-	char *str, *s1, *s2;
+	char *str, *s1, *s2, *s_lnr;
+
+	s_lnr = _itoa(line_nr);
+	if (s_lnr == NULL)
+		return (NULL);
 
 	s1 = concat_str(prog_name, ": ");
 	if (s1 == NULL)
+	{
+		free(s_lnr);
 		return (NULL);
+	}
 
-	s2 = concat_str(_itoa(line_nr), ": ");
+	s2 = concat_str(s_lnr, ": ");
+	free(s_lnr);
 	if (s2 == NULL)
 	{
 		free(s1);
