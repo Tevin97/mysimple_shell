@@ -2,6 +2,7 @@
 
 /**
  * free_mem - Frees malloc'ed memory of string array
+ * @av: string array
  * Return: Nothing.
  */
 void free_mem(char **av)
