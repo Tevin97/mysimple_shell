@@ -17,7 +17,7 @@ extern char **environ;
 char *prompt(void);
 int exec(char **argv);
 char **str_to_array(char *str, char *delim);
-int fork_and_execute(char *command, char *prog_name, int line_nr);
+int fork_and_execute(char **argv);
 char *_getenv(const char *name);
 char **path(void);
 char *concat_str(const char *s1, const char *s2);
