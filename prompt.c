@@ -34,7 +34,7 @@ char *prompt(void)
 		if (isatty(STDIN_FILENO))
 		/* Print new line when in interactive mode */
 			write(STDOUT_FILENO, "\n", 1);
-		exit(EXIT_SUCCESS);
+		return (NULL);
 	}
 	return (buff);
 }
